@@ -1,17 +1,22 @@
 :root {
-  background-color: #000;
+  background-color: #121212;
   --color-text: #fff;
+  --color-primary: #6200ee;
+  --color-secondary: #03dac6;
+  --color-happy: #ffcc00;
+  --color-neutral: #03dac6;
+  --color-sad: #cf6679;
 }
 
 .Background {
   position: fixed;
   background: radial-gradient(
     71.43% 62.3% at 46.43% 36.43%,
-    rgba(18, 229, 229, 0) 15%,
-    rgba(239, 155, 255, 0.3) 56.35%,
-    #ff6448 100%
+    rgba(98, 0, 238, 0.1) 15%,
+    rgba(3, 218, 198, 0.2) 56.35%,
+    rgba(98, 0, 238, 0.3) 100%
   );
-  box-shadow: 0px 12.93px 28.74px 0px #ffd28db2 inset;
+  box-shadow: 0px 12.93px 28.74px 0px rgba(3, 218, 198, 0.3) inset;
   border-radius: 50%;
   width: 200vw;
   height: 200vw;
@@ -26,7 +31,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 60px;
 }
 
 text {
@@ -34,86 +40,143 @@ text {
 }
 
 .Banner {
-  flex: 5;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-bottom: 40px;
   z-index: 100;
 }
 
-.Logo {
+.Title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-secondary);
+  text-align: center;
+}
+
+.Subtitle {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+
+.MoodSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.MoodOption {
+  display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 15px;
+}
+
+.IconSelector {
+  position: relative;
+  display: flex;
   justify-content: center;
-  margin-bottom: 8px;
+  align-items: center;
 }
 
-.Logo--react {
-  width: 100px;
-  height: 100px;
-  animation: Logo--spin infinite 20s linear;
+.MoodIcon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
 }
 
-.Logo--lynx {
-  width: 100px;
-  height: 100px;
-  animation: Logo--shake infinite 0.5s ease;
+.MoodIcon.Selected {
+  transform: scale(1.2);
+  box-shadow: 0 0 20px rgba(3, 218, 198, 0.5);
+  border-radius: 50%;
 }
 
-@keyframes Logo--spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.ChangeIconButton {
+  position: absolute;
+  bottom: 5px;
+  right: -10px;
+  width: 30px;
+  height: 30px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
 }
 
-@keyframes Logo--shake {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(0.9);
-  }
-  100% {
-    transform: scale(1);
-  }
+.ChangeIconButton:hover {
+  transform: scale(1.1);
+}
+
+.ChangeIconButton text {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.MoodText {
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .Content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-}
-
-.Arrow {
-  width: 24px;
-  height: 24px;
-}
-
-.Title {
-  font-size: 36px;
-  font-weight: 700;
-}
-
-.Subtitle {
-  font-style: italic;
-  font-size: 22px;
-  font-weight: 600;
-  margin-bottom: 8px;
+  width: 100%;
+  padding: 20px;
 }
 
 .Description {
-  font-size: 20px;
-  color: rgba(255, 255, 255, 0.85);
-  margin: 15rpx;
+  font-size: 24px;
+  color: var(--color-secondary);
+  margin-bottom: 30px;
+  font-weight: 600;
 }
 
-.Hint {
-  font-size: 12px;
-  margin: 5px;
-  color: rgba(255, 255, 255, 0.65);
+.History {
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 15px;
+}
+
+.HistoryTitle {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: var(--color-secondary);
+}
+
+.HistoryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.HistoryItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.HistoryIcon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.HistoryText {
+  font-size: 16px;
 }
